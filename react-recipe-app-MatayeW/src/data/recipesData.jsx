@@ -1,0 +1,32 @@
+export const recipesData = [
+    {
+        id: 1,
+        title: "Fluffy Buttermilk Pancakes",
+        category: "breakfast",
+        cuisine: "American",
+        difficulty: "easy",
+        prepTime: 10,
+        cookTime: 15,
+        servings: 4,
+        image: "/assets/images/pancakes.jpg",
+        videoURL: "/assets/videos/pancakes-tutorial.mp4",
+        audioURL: "/assets/audio/pancakes-tips.mp3",
+        ingredients: [
+            "2 cups all-purpose flour",
+            "2 tbsp sugar",
+            "2 tsp baking powder",
+            "1/2 tsp salt",
+            "2 large eggs",
+            "1 3/4 cups buttermilk",
+            "1/4 cup melted butter",
+        ],
+        instructions: [
+            "Whisk together flour, sugar, baking powder, and salt",
+            "In a seperate bowl, beat eggs then mix in buttermilk and melted butter",
+            "Combine wet and dry ingredients until just mixed (small lumps are fine)",
+            "Pour 1/4 cup batter per pancake onto a hot, greased griddle",
+            "Flip once bubbles form on the surface, cook until golden",
+            "Serve warm with syrup and butter",
+        ],
+    },
+]
