@@ -1,4 +1,5 @@
 export const recipesData = [
+    // breakfast recipes
     {
         id: 1,
         title: "Fluffy Buttermilk Pancakes",
@@ -84,6 +85,7 @@ export const recipesData = [
             "Top with mixed berries before serving",
         ],
     },
+    // lunch recipes
     {
         id: 4,
         title: "Grilled Chicken Caesar Salad",
@@ -197,4 +199,5 @@ export const recipesData = [
             "Slice in half and serve",
         ],
     },
+    // dinner recipes
 ]
