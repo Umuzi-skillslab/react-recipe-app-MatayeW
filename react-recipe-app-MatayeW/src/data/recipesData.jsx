@@ -200,4 +200,32 @@ export const recipesData = [
         ],
     },
     // dinner recipes
+    {
+        id: 8,
+        title: "Classic Spaghetti Carbonara",
+        category: "dinner",
+        cuisine: "Italian",
+        difficulty: "medium",
+        prepTime: 10,
+        cookTime: 15,
+        servings: 4,
+        image: "/assets/images/carbonara.jpg",
+        videoURL: "/assets/videos/carbonara-tutorial.mp4",
+        audioURL: "/assets/audio/carbonara-tips.mp3",
+        ingredients: [
+            "400g spaghetti",
+            "200g pancetta",
+            "4 egg yolks",
+            "100g Parmesan cheese",
+            "Black pepper",
+            "Salt",
+        ],
+        instructions: [
+            "Cook spaghetti according to package instructions",
+            "Fry pancetta until crispy",
+            "Mix egg yolks with parmesan",
+            "Add egg mixture and toss quickly off the heat",
+            "Season with pepper and serve",
+        ],
+    },
 ]
