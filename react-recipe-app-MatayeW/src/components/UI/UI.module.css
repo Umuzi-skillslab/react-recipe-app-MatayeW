@@ -1,3 +1,4 @@
+/* Button styling */
 .button {
     border: none;
     border-radius: 6px;
@@ -34,4 +35,25 @@
 .cardHoverable:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* SearchBar styling */
+.searchForm {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.searchInput {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border: 2px solid #d1d1d1;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.15s ease;
+}
+
+.searchInputFocused {
+    border-color: #2f6f4f;
+    outline: none;
 }
