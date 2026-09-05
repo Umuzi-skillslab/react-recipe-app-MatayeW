@@ -1,8 +1,8 @@
 
 // Adds prepTime + cookTime together, falls back to 0 if a recipe is missing either field so callers never get NaN
 export const getTotalTime = (recipe) => {
-    let prep = recipe.prepTime || 0;
-    let cook = recipe.cookTime || 0;
+    const prep = recipe.prepTime || 0;
+    const cook = recipe.cookTime || 0;
     return prep + cook;
 };
 
@@ -10,8 +10,8 @@ export const getTotalTime = (recipe) => {
 export const formatCookTime = (minutes) => {
     if (!minutes || minutes <= 0) return "0 min";
 
-    let hours = Math.floor(minutes/60);
-    let remainingMinutes = minutes % 60;
+    const hours = Math.floor(minutes/60);
+    const remainingMinutes = minutes % 60;
 
     if (hours === 0) return `${remainingMinutes} min`;
     if (remainingMinutes === 0) return `${hours} hr`;
@@ -38,13 +38,13 @@ export const filterRecipes = (
     { searchTerm = "", category = "all", cuisine = "all", difficulty = "all" } =
     {}
 ) => {
-    let term = searchTerm.trim().toLowerCase();
+    const term = searchTerm.trim().toLowerCase();
 
     return recipes.filter((recipe) => {
-        let matchesSearch = term === "" || recipe.title.toLowerCase().includes(term);
-        let matchesCategory = category === "all" || recipe.category === category;
-        let matchesCuisine = cuisine === "all" || recipe.cuisine === cuisine;
-        let matchesDifficulty = difficulty === "all" || recipe.difficulty === difficulty;
+        const matchesSearch = term === "" || recipe.title.toLowerCase().includes(term);
+        const matchesCategory = category === "all" || recipe.category === category;
+        const matchesCuisine = cuisine === "all" || recipe.cuisine === cuisine;
+        const matchesDifficulty = difficulty === "all" || recipe.difficulty === difficulty;
 
         return matchesSearch && matchesCategory && matchesCuisine && matchesDifficulty;
     });
@@ -52,8 +52,8 @@ export const filterRecipes = (
 
 // Sorts a copy of the recipes array by title, total cook time or difficulty
 export const sortRecipes = (recipes, sortBy = "title") => {
-    let difficultyOrder = { easy: 0, medium: 1, hard: 2 };
-    let sorted = [...recipes];
+    const difficultyOrder = { easy: 0, medium: 1, hard: 2 };
+    const sorted = [...recipes];
 
     switch (sortBy) {
         case "title":
