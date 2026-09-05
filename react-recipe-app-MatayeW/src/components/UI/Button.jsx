@@ -3,7 +3,7 @@ import styles from "./UI.module.css";
 
 // Maps each variant to its background/text colours
 const VARIANT_STYLES = {
-    primary: { backgroundColor: "#2f6f46", color: "#ffffff" },
+    primary: { backgroundColor: "#2f6f4f", color: "#ffffff" },
     secondary: { backgroundColor: "#e5e5e5", color: "#1a1a1a" },
     danger: { backgroundColor: "#c0392b", color: "#ffffff" },
 };
