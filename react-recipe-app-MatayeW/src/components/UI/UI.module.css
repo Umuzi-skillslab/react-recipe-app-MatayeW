@@ -1,0 +1,37 @@
+.button {
+    border: none;
+    border-radius: 6px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover effect */
+.button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.buttonDisabled {
+    cursor: not-allowed;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover effect only applied when hoverable is true */
+.cardHoverable {
+    cursor: pointer;
+}
+
+.cardHoverable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
