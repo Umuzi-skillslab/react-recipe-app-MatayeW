@@ -435,4 +435,32 @@ export const recipesData = [
             "Dust with cocoa powder and refrigerate for at least 4 hours",
         ],
     },
+    // Snack recipes
+    {
+        id: 16,
+        title: "Crispy Baked Sweet Potato Fries",
+        category: "snacks",
+        cuisine: "American",
+        difficulty: "easy",
+        prepTime: 10,
+        cookTime: 25,
+        servings: 4,
+        image: "/assets/images/sweet-potato-fries.jpg",
+        videoURL: "/assets/videos/sweet-potato-fries-tutorial.mp4",
+        audioURL: "/assets/audio/sweet-potato-fries-tips.mp3",
+        ingredients: [
+            "2 large sweet potatoes, cut into strips",
+            "2 tbsp olive oil",
+            "1 tbsp cornstarch",
+            "1 tsp paprika",
+            "Salt and pepper",
+        ],
+        instructions: [
+            "Preheat oven to 220°C (425°F)",
+            "Toss sweet potato strips with cornstarch, then olive oil and spices",
+            "Spread in a single layer on a baking sheet",
+            "Bake 20-25 minutes, flipping halfway, until crisp",
+            "Season with extra salt and serve immediately",
+        ],
+    },
 ]
