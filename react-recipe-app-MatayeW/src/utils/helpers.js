@@ -49,3 +49,20 @@ export const filterRecipes = (
         return matchesSearch && matchesCategory && matchesCuisine && matchesDifficulty;
     });
 };
+
+// Sorts a copy of the recipes array by title, total cook time or difficulty
+export const sortRecipes = (recipes, sortBy = "title") => {
+    let difficultyOrder = { easy: 0, medium: 1, hard: 2 };
+    let sorted = [...recipes];
+
+    switch (sortBy) {
+        case "title":
+            return sorted.sort((a, b) => a.title.localeCompare(b.title));
+        case "time":
+            return sorted.sort((a, b) => getTotalTime(a) - getTotalTime(b));
+        case "difficulty":
+            return sorted.sort((a, b) => difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty]);
+        default:
+            return sorted;
+    }
+};
