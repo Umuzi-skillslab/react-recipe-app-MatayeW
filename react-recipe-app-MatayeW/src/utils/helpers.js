@@ -1,6 +1,5 @@
 
-// Adds prepTime + cookTime together, falls back to 0 if a recipe
-// is missing either field so callers never get NaN
+// Adds prepTime + cookTime together, falls back to 0 if a recipe is missing either field so callers never get NaN
 export const getTotalTime = (recipe) => {
     let prep = recipe.prepTime || 0;
     let cook = recipe.cookTime || 0;
@@ -19,7 +18,7 @@ export const formatCookTime = (minutes) => {
     return `${hours} hr ${remainingMinutes} min`;
 };
 
-// assigning emoji (visual indicator) to difficulty level
+// Assigning emoji (visual indicator) to difficulty level
 export const getDifficultyEmoji = (difficulty) => {
     switch (difficulty) {
         case "easy":
@@ -31,4 +30,22 @@ export const getDifficultyEmoji = (difficulty) => {
         default:
             return "⚪";
     }
+};
+
+// Filters an array of recipes against a search term and optional category/cuisine/difficulty values
+export const filterRecipes = (
+    recipes,
+    { searchTerm = "", category = "all", cuisine = "all", difficulty = "all" } =
+    {}
+) => {
+    let term = searchTerm.trim().toLowerCase();
+
+    return recipes.filter((recipe) => {
+        let matchesSearch = term === "" || recipe.title.toLowerCase().includes(term);
+        let matchesCategory = category === "all" || recipe.category === category;
+        let matchesCuisine = cuisine === "all" || recipe.cuisine === cuisine;
+        let matchesDifficulty = difficulty === "all" || recipe.difficulty === difficulty;
+
+        return matchesSearch && matchesCategory && matchesCuisine && matchesDifficulty;
+    });
 };
