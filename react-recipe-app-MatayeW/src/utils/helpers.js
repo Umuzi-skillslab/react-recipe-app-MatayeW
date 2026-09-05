@@ -18,3 +18,17 @@ export const formatCookTime = (minutes) => {
     if (remainingMinutes === 0) return `${hours} hr`;
     return `${hours} hr ${remainingMinutes} min`;
 };
+
+// assigning emoji (visual indicator) to difficulty level
+export const getDifficultyEmoji = (difficulty) => {
+    switch (difficulty) {
+        case "easy":
+            return "🟢";
+        case "medium":
+            return "🟡";
+        case "hard":
+            return "🔴";
+        default:
+            return "⚪";
+    }
+};
