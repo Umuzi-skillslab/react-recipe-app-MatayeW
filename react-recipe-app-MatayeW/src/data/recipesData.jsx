@@ -463,4 +463,33 @@ export const recipesData = [
             "Season with extra salt and serve immediately",
         ],
     },
-]
+    {
+        id: 17,
+        title: "Homemade Guacamole",
+        category: "snacks",
+        cuisine: "Mexican",
+        difficulty: "easy",
+        prepTime: 10,
+        cookTime: 0,
+        servings: 4,
+        image: "/assets/images/guacamole.jpg",
+        videoURL: "/assets/videos/guacamole-tutorial.mp4",
+        audioURL: "/assets/audio/guacamole-tips.mp3",
+        ingredients: [
+            "3 ripe avocados",
+            "1/2 red onion, finely diced",
+            "1 tomato, diced",
+            "1 lime, juiced",
+            "1/4 cup cilantro, chopped",
+            "Salt to taste",
+        ],
+        instructions: [
+            "Mash avocados in a bowl to desired consistency",
+            "Stir in onion, tomato and cilantro",
+            "Add lime juice and season with salt",
+            "Mix well and serve with tortilla chips",
+        ],
+    },
+];
+
+export default recipesData;
