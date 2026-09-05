@@ -6,3 +6,15 @@ export const getTotalTime = (recipe) => {
     let cook = recipe.cookTime || 0;
     return prep + cook;
 };
+
+// Formats a number of minutes into a readable string
+export const formatCookTime = (minutes) => {
+    if (!minutes || minutes <= 0) return "0 min";
+
+    let hours = Math.floor(minutes/60);
+    let remainingMinutes = minutes % 60;
+
+    if (hours === 0) return `${remainingMinutes} min`;
+    if (remainingMinutes === 0) return `${hours} hr`;
+    return `${hours} hr ${remainingMinutes} min`;
+};
