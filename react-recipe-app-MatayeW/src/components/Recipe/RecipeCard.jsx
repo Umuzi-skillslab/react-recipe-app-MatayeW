@@ -36,7 +36,7 @@ const RecipeCard = ({ recipe, isFavorite = false, onFavoriteToggle }) => {
 };
 
 // PropType validators
-RecipeCard.PropTypes = {
+RecipeCard.propTypes = {
     recipe: PropTypes.shape({
         id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
