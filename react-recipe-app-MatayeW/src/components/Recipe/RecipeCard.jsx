@@ -34,3 +34,22 @@ const RecipeCard = ({ recipe, isFavorite = false, onFavoriteToggle }) => {
         </Link>
     );
 };
+
+// PropType validators
+RecipeCard.PropTypes = {
+    recipe: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        category: PropTypes.string,
+        cuisine: PropTypes.string,
+        difficulty: PropTypes.string,
+        prepTime: PropTypes.number,
+        cookTime: PropTypes.number,
+        servings: PropTypes.number,
+        image: PropTypes.string,
+    }).isRequired,
+    isFavorite: PropTypes.bool,
+    onFavoriteToggle: PropTypes.func.isRequired,
+};
+
+export default RecipeCard;
