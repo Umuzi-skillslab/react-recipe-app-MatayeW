@@ -25,7 +25,7 @@ const RecipeDetail = ({ recipes }) => {
     }
 
     return (
-        <div className={styles.RecipeDetail}>
+        <div className={styles.recipeDetail}>
             <Button variant="secondary" onClick={() => navigate("/recipes")}>
                 ← Back to Recipes
             </Button>
@@ -37,7 +37,7 @@ const RecipeDetail = ({ recipes }) => {
                 {formatCookTime(getTotalTime(recipe))} ● Serves {recipe.servings || 4}
             </p>
 
-            <img src={recipe.image} alt={recipe.videoUrl} className={styles.detailImage} />
+            <img src={recipe.image} alt={recipe.title} className={styles.detailImage} />
 
             <VideoPlayer videoUrl={recipe.videoUrl} title={`${recipe.title} - Tutorial`} />
 
@@ -46,7 +46,7 @@ const RecipeDetail = ({ recipes }) => {
                     <h2>Ingredients</h2>
                     <ul>
                         {recipe.ingredients.map((ingredient, index) =>(
-                            <li key={index}></li>
+                            <li key={index}>{ingredient}</li>
                         ))}
                     </ul>
                 </div>
