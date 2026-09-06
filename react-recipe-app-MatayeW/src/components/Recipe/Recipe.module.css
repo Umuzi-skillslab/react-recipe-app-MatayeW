@@ -37,3 +37,37 @@
     padding: 2rem;
     font-size: 1.05rem;
 }
+
+/* Not found Styling */
+.notFound {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+/* RecipeDetails styling */
+.recipeDetail {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.detailImage {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 1rem 0;
+}
+
+.detailColumns {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .detailColumns {
+        grid-template-columns: 1fr;
+    }
+}
