@@ -53,8 +53,6 @@ const RecipeFilter = ({
         ))}
       </select>
 
-      {/* Only show the Clear button when at least one filter is active,
-          rather than always showing a button that does nothing */}
       {(category !== "all" || cuisine !== "all" || difficulty !== "all") && (
         <button onClick={onClear} className={styles.clearButton}>
           Clear Filters
