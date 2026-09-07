@@ -1,141 +1,173 @@
-import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navigation/Navbar';
+import "./App.css";
+
+import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navigation/Navbar";
+import Footer from "./components/common/Footer";
+
 import Home from "./pages/Home";
 import RecipesPage from "./pages/RecipesPage";
 import RecipeDetail from "./components/Recipe/RecipeDetail";
 import MealPlannerPage from "./pages/MealPlannerPage";
 import FavoritesPage from "./pages/FavoritesPage";
 import NotFound from "./pages/NotFound";
+
 import { recipesData } from "./data/recipesData";
 
 // Empty week state for when "Clear Week" is clicked and used as initial state
 const EMPTY_WEEK = {
-  monday: { breakfast: null, lunch: null, dinner: null },
-  tuesday: { breakfast: null, lunch: null, dinner: null },
-  wednesday: { breakfast: null, lunch: null, dinner: null },
-  thursday: { breakfast: null, lunch: null, dinner: null },
-  friday: { breakfast: null, lunch: null, dinner: null },
-  saturday: { breakfast: null, lunch: null, dinner: null },
-  sunday: { breakfast: null, lunch: null, dinner: null },
+    monday: { breakfast: null, lunch: null, dinner: null },
+    tuesday: { breakfast: null, lunch: null, dinner: null },
+    wednesday: { breakfast: null, lunch: null, dinner: null },
+    thursday: { breakfast: null, lunch: null, dinner: null },
+    friday: { breakfast: null, lunch: null, dinner: null },
+    saturday: { breakfast: null, lunch: null, dinner: null },
+    sunday: { breakfast: null, lunch: null, dinner: null },
 };
 
 function App() {
-  // loading recipes states
-  const [recipes, setRecipes] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+    // Loading recipes state
+    const [recipes, setRecipes] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-  // Favorites and mealPlan states
-  const [favorites, setFavorites] = useState([]);
-  const [mealPlan, setMealPlan] = useState(EMPTY_WEEK);
+    // Favorites and mealPlan states
+    const [favorites, setFavorites] = useState([]);
+    const [mealPlan, setMealPlan] = useState(EMPTY_WEEK);
 
-// Loading recipes to give the effect of "fetching data"
-useEffect(() => {
-  setRecipes(recipesData);
-  setIsLoading(false);
-}, []);
+    // Loading recipes to give the effect of "fetching data"
+    useEffect(() => {
+        setRecipes(recipesData);
+        setIsLoading(false);
+    }, []);
 
-// Load favorites from localStorage
-useEffect(() => {
-  const saved = localStorage.getItem("favorites");
-  if (saved) {
-    setFavorites(JSON.parse(saved));
-  }
-}, []);
+    // Load favorites from localStorage
+    useEffect(() => {
+        const saved = localStorage.getItem("favorites");
 
-// Load saved meal plan from localStorage 
-useEffect(() => {
-  const saved = localStorage.getItem("mealPlan");
-  if (saved) {
-    setMealPlan(JSON.parse(saved));
-  }
-}, []);
+        if (saved) {
+            setFavorites(JSON.parse(saved));
+        }
+    }, []);
 
-// Save favorites to localStorage everytime they change
-useEffect(() => {
-  localStorage.setItem("favorites", JSON.stringify(favorites));
-}, [favorites]);
+    // Load saved meal plan from localStorage
+    useEffect(() => {
+        const saved = localStorage.getItem("mealPlan");
 
-// Save meal plan to localStorage everytime it changes
-useEffect(() => {
-  localStorage.setItem("mealPlan", JSON.stringify(mealPlan));
-}, [mealPlan]);
+        if (saved) {
+            setMealPlan(JSON.parse(saved));
+        }
+    }, []);
 
-// Child to parent callback: RecipeCard calls this when favorite button is clicked
-const handleFavoriteToggle = (recipeId) => {
-  setFavorites((prev) => {
-    const alreadyFavorited = prev.some((r) => r.id === recipeId);
-    if (alreadyFavorited) {
-      return prev.filter((r) => r.id !== recipeId);
-    }
-    const recipe = recipes.find((r) => r.id === recipeId);
-    return [...prev, recipe];
-  });
-};
+    // Save favorites to localStorage every time they change
+    useEffect(() => {
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+    }, [favorites]);
 
-// Child to parent callback: DayCard calls this when "Add" is clicked
-const handleAddMeal = (day, mealType, recipe) => {
-  setMealPlan((prev) => ({
-    ...prev,
-    [day]: { ...prev[day], [mealType]: recipe },
-  }));
-};
+    // Save meal plan to localStorage every time it changes
+    useEffect(() => {
+        localStorage.setItem("mealPlan", JSON.stringify(mealPlan));
+    }, [mealPlan]);
 
-const handleRemoveMeal = (day, mealType) => {
-  setMealPlan((prev) => ({
-    ...prev,
-    [day]: { ...prev[day], [mealType]: null },
-  }));
-};
+    // Child to parent callback: RecipeCard calls this when favorite button is clicked
+    const handleFavoriteToggle = (recipeId) => {
+        setFavorites((prev) => {
+            const alreadyFavorited = prev.some(
+                (recipe) => recipe.id === recipeId
+            );
 
-const handleClearWeek = () => {
-  setMealPlan(EMPTY_WEEK);
-};
+            if (alreadyFavorited) {
+                return prev.filter((recipe) => recipe.id !== recipeId);
+            }
 
-  return (
-    <>
+            const recipe = recipes.find((item) => item.id === recipeId);
 
-    <Navbar favoritesCount={favorites.length} />
+            return [...prev, recipe];
+        });
+    };
 
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route 
-        path="/recipes" 
-        element={
-          <RecipesPage 
-          recipes={recipes} 
-          favorites={favorites} 
-          isLoading={isLoading} 
-          onFavoriteToggle={handleFavoriteToggle} 
-        />
-      }
-    />
-    <Route
-    path="/recipes/:id" element={<RecipeDetail recipes={recipes} />} />
+    // Child to parent callback: DayCard calls this when "Add" is clicked
+    const handleAddMeal = (day, mealType, recipe) => {
+        setMealPlan((prev) => ({
+            ...prev,
+            [day]: {
+                ...prev[day],
+                [mealType]: recipe,
+            },
+        }));
+    };
 
-    <Route 
-      path="/meal-planner" 
-      element={
-        <MealPlannerPage
-        mealPlan={mealPlan}
-        recipes={recipes}
-        onAddMeal={handleAddMeal}
-        onRemoveMeal={handleRemoveMeal}
-        onClearWeek={handleClearWeek} 
-        />
-      }
-    />
-    <Route 
-      path="/favorites" 
-      element={
-        <FavoritesPage favorites={favorites} onFavoriteToggle={handleFavoriteToggle} />
-      } 
-    />
-    <Route path="*" element={<NotFound />} />
-    </Routes>
+    // Remove a recipe from a specific meal slot
+    const handleRemoveMeal = (day, mealType) => {
+        setMealPlan((prev) => ({
+            ...prev,
+            [day]: {
+                ...prev[day],
+                [mealType]: null,
+            },
+        }));
+    };
 
-    </>
-  );
+    // Clear all meals from the weekly meal plan
+    const handleClearWeek = () => {
+        setMealPlan(EMPTY_WEEK);
+    };
+
+    return (
+        <div className="app">
+            <Navbar favoritesCount={favorites.length} />
+
+            <main className="main">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+
+                    <Route
+                        path="/recipes"
+                        element={
+                            <RecipesPage
+                                recipes={recipes}
+                                favorites={favorites}
+                                isLoading={isLoading}
+                                onFavoriteToggle={handleFavoriteToggle}
+                            />
+                        }
+                    />
+
+                    <Route
+                        path="/recipes/:id"
+                        element={<RecipeDetail recipes={recipes} />}
+                    />
+
+                    <Route
+                        path="/meal-planner"
+                        element={
+                            <MealPlannerPage
+                                mealPlan={mealPlan}
+                                recipes={recipes}
+                                onAddMeal={handleAddMeal}
+                                onRemoveMeal={handleRemoveMeal}
+                                onClearWeek={handleClearWeek}
+                            />
+                        }
+                    />
+
+                    <Route
+                        path="/favorites"
+                        element={
+                            <FavoritesPage
+                                favorites={favorites}
+                                onFavoriteToggle={handleFavoriteToggle}
+                            />
+                        }
+                    />
+
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            </main>
+
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
