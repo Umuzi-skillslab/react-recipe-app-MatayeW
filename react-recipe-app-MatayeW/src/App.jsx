@@ -15,7 +15,6 @@ import NotFound from "./pages/NotFound";
 
 import { recipesData } from "./data/recipesData";
 
-// Empty week state for when "Clear Week" is clicked and used as initial state
 const EMPTY_WEEK = {
     monday: { breakfast: null, lunch: null, dinner: null },
     tuesday: { breakfast: null, lunch: null, dinner: null },
@@ -27,49 +26,42 @@ const EMPTY_WEEK = {
 };
 
 function App() {
-    // Loading recipes state
-    const [recipes, setRecipes] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    // Recipe data is available immediately when the app starts.
+    const [recipes] = useState(recipesData);
 
-    // Favorites and mealPlan states
-    const [favorites, setFavorites] = useState([]);
-    const [mealPlan, setMealPlan] = useState(EMPTY_WEEK);
+    // Loading state is used by the recipe page for conditional rendering.
+    const [isLoading] = useState(false);
 
-    // Loading recipes to give the effect of "fetching data"
-    useEffect(() => {
-        setRecipes(recipesData);
-        setIsLoading(false);
-    }, []);
-
-    // Load favorites from localStorage
-    useEffect(() => {
+    // Load saved favorites when the state is first created.
+    const [favorites, setFavorites] = useState(() => {
         const saved = localStorage.getItem("favorites");
 
-        if (saved) {
-            setFavorites(JSON.parse(saved));
-        }
-    }, []);
+        return saved ? JSON.parse(saved) : [];
+    });
 
-    // Load saved meal plan from localStorage
-    useEffect(() => {
+    // Load the saved meal plan when the state is first created.
+    const [mealPlan, setMealPlan] = useState(() => {
         const saved = localStorage.getItem("mealPlan");
 
-        if (saved) {
-            setMealPlan(JSON.parse(saved));
-        }
-    }, []);
+        return saved ? JSON.parse(saved) : EMPTY_WEEK;
+    });
 
-    // Save favorites to localStorage every time they change
+    // Save favorites whenever the favorites state changes.
     useEffect(() => {
         localStorage.setItem("favorites", JSON.stringify(favorites));
     }, [favorites]);
 
-    // Save meal plan to localStorage every time it changes
+    // Save the meal plan whenever the meal plan state changes.
     useEffect(() => {
         localStorage.setItem("mealPlan", JSON.stringify(mealPlan));
     }, [mealPlan]);
 
-    // Child to parent callback: RecipeCard calls this when favorite button is clicked
+    // Update the browser tab title when the app loads.
+    useEffect(() => {
+        document.title = "Recipe Discovery & Meal Planner";
+    }, []);
+
+    // Add or remove a recipe from the favorites list.
     const handleFavoriteToggle = (recipeId) => {
         setFavorites((prev) => {
             const alreadyFavorited = prev.some(
@@ -86,7 +78,7 @@ function App() {
         });
     };
 
-    // Child to parent callback: DayCard calls this when "Add" is clicked
+    // Add a recipe to a specific day and meal.
     const handleAddMeal = (day, mealType, recipe) => {
         setMealPlan((prev) => ({
             ...prev,
@@ -97,7 +89,7 @@ function App() {
         }));
     };
 
-    // Remove a recipe from a specific meal slot
+    // Remove a recipe from a specific meal.
     const handleRemoveMeal = (day, mealType) => {
         setMealPlan((prev) => ({
             ...prev,
@@ -108,7 +100,7 @@ function App() {
         }));
     };
 
-    // Clear all meals from the weekly meal plan
+    // Clear every meal from the weekly planner.
     const handleClearWeek = () => {
         setMealPlan(EMPTY_WEEK);
     };
