@@ -21,6 +21,33 @@ const EMPTY_WEEK = {
 };
 
 function App() {
+  // loading recipes states
+  const [recipes, setRecipes] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Favorites and mealPlan states
+  const [favorites, setFavorites] = useState([]);
+  const [mealPlan, setMealPlan] = useState(EMPTY_WEEK);
+
+// Loading recipes to give the effect of "fetching data"
+useEffect(() => {
+  setRecipes(recipesData);
+  setIsLoading(false);
+}, []);
+
+// Load favorites from localStorage
+useEffect(() => {
+  const saved = localStorage.getItem("favorites");
+  if (saved) {
+    setFavorites(JSON.parse(saved));
+  }
+}, []);
+
+// Load saved meal plan to localStorage everytime they change
+useEffect(() => {
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+}, [favorites]);
+
   return (
     <>
 
