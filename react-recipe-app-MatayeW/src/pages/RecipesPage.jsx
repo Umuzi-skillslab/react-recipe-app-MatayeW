@@ -7,9 +7,6 @@ import Loading from "../components/UI/Loading";
 import { filterRecipes, sortRecipes } from "../utils/helpers";
 import styles from "./Pages.module.css";
 
-// RecipesPage: owns the local filter/sort/search state (this state
-// is only relevant to this page, so it isn't lifted to App.jsx).
-// recipes/favorites/onFavoriteToggle come down from App as props.
 const RecipesPage = ({ recipes, favorites, isLoading, onFavoriteToggle }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [category, setCategory] = useState("all");
@@ -18,8 +15,6 @@ const RecipesPage = ({ recipes, favorites, isLoading, onFavoriteToggle }) => {
     const [sortBy, setSortBy] = useState("title");
 
     // Data transformation: filter first, then sort the result.
-    // Recomputed on every render from the current filter state —
-    // no need for extra state just to hold "the filtered list".
     const filtered = filterRecipes(recipes, { searchTerm, category, cuisine, difficulty });
     const visibleRecipes = sortRecipes(filtered, sortBy);
 
