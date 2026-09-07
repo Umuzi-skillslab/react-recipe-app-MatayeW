@@ -38,6 +38,30 @@
 }
 
 /* SearchBar styling */
+.searchBar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.searchBar input {
+    height: 42px;
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    border: 2px solid #d1d1d1;
+    border-radius: 6px;
+    outline: none;
+}
+
+.searchBar button {
+    height: 42px;
+    padding: 0.6rem;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* Search form styling */
 .searchForm {
     display: flex;
     gap: 0.5rem;

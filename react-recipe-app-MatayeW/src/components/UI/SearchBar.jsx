@@ -1,8 +1,10 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./UI.module.css";
+import Button from "./Button";
 
-const SearchBar = ({ placeHolder = "Search recipes...", onSearch }) => {
+// Search bar component
+const SearchBar = ({ placeholder = "Search recipes...", onSearch }) => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const handleChange = (e) => {
@@ -12,21 +14,24 @@ const SearchBar = ({ placeHolder = "Search recipes...", onSearch }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (onSearch) {
-            onSearch(searchTerm);
-        }
+        // Send the search term to the parent component
+        onSearch(searchTerm);
     };
 
     return (
-        <form className={styles.searchBar} onSubmit={handleSubmit}>
-            <input 
-                type="text" 
-                value={searchTerm} 
-                onChange={handleChange} 
-                placeholder={placeHolder} 
+        <form
+            className={styles.searchBar}
+            onSubmit={handleSubmit}
+        >
+            <input
+                type="text"
+                value={searchTerm}
+                onChange={handleChange}
+                placeholder={placeholder}
                 aria-label="Search recipes"
             />
-            <Button type="submit">
+
+            <Button type="submit" variant="primary">
                 Search
             </Button>
         </form>
@@ -34,8 +39,8 @@ const SearchBar = ({ placeHolder = "Search recipes...", onSearch }) => {
 };
 
 SearchBar.propTypes = {
-    onSearch: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
+    onSearch: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
