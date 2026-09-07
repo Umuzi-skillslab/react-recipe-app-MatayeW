@@ -1,5 +1,23 @@
+import pancakes from "../assets/images/pancakes.jpg";
+import avocadoToast from "../assets/images/avocado-toast.jpg";
+import overnightOats from "../assets/images/overnight-oats.jpg";
+import caesarSalad from "../assets/images/caesar-salad.jpg";
+import turkeyClub from "../assets/images/turkey-club.jpg";
+import stirfryNoodles from "../assets/images/stirfry-noodles.jpg";
+import beanWrap from "../assets/images/bean-wrap.jpg";
+import carbonara from "../assets/images/carbonara.jpg";
+import beefBroccoli from "../assets/images/beef-broccoli.jpg";
+import tikkaMasala from "../assets/images/tikka-masala.jpg";
+import bakedSalmon from "../assets/images/baked-salmon.jpg";
+import beefTacos from "../assets/images/beef-tacos.jpg";
+import chocolateChipCookies from "../assets/images/chocolate-chip-cookies.jpg";
+import cheesecake from "../assets/images/cheesecake.jpg";
+import tiramisu from "../assets/images/tiramisu.jpg";
+import sweetPotatoFries from "../assets/images/sweet-potato-fries.jpg";
+import guacamole from "../assets/images/guacamole.jpg";
+
 export const recipesData = [
-    // breakfast recipes
+    // Breakfast recipes
     {
         id: 1,
         title: "Fluffy Buttermilk Pancakes",
@@ -9,7 +27,7 @@ export const recipesData = [
         prepTime: 10,
         cookTime: 15,
         servings: 4,
-        image: "/assets/images/pancakes.jpg",
+        image: pancakes,
         videoUrl: "/assets/videos/pancakes-tutorial.mp4",
         audioUrl: "/assets/audio/pancakes-tips.mp3",
         ingredients: [
@@ -23,7 +41,7 @@ export const recipesData = [
         ],
         instructions: [
             "Whisk together flour, sugar, baking powder, and salt",
-            "In a seperate bowl, beat eggs then mix in buttermilk and melted butter",
+            "In a separate bowl, beat eggs then mix in buttermilk and melted butter",
             "Combine wet and dry ingredients until just mixed (small lumps are fine)",
             "Pour 1/4 cup batter per pancake onto a hot, greased griddle",
             "Flip once bubbles form on the surface, cook until golden",
@@ -39,7 +57,7 @@ export const recipesData = [
         prepTime: 5,
         cookTime: 5,
         servings: 1,
-        image: "/assets/images/avocado-toast.jpg",
+        image: avocadoToast,
         videoUrl: "/assets/videos/avocado-toast-tutorial.mp4",
         audioUrl: "/assets/audio/avocado-toast-tips.mp3",
         ingredients: [
@@ -67,7 +85,7 @@ export const recipesData = [
         prepTime: 5,
         cookTime: 0,
         servings: 1,
-        image: "/assets/images/overnight-oats.jpg",
+        image: overnightOats,
         videoUrl: "/assets/videos/overnight-oats-tutorial.mp4",
         audioUrl: "/assets/audio/overnight-oats-tips.mp3",
         ingredients: [
@@ -85,7 +103,8 @@ export const recipesData = [
             "Top with mixed berries before serving",
         ],
     },
-    // lunch recipes
+
+    // Lunch recipes
     {
         id: 4,
         title: "Grilled Chicken Caesar Salad",
@@ -95,7 +114,7 @@ export const recipesData = [
         prepTime: 15,
         cookTime: 15,
         servings: 2,
-        image: "/assets/images/caesar-salad.jpg",
+        image: caesarSalad,
         videoUrl: "/assets/videos/caesar-salad-tutorial.mp4",
         audioUrl: "/assets/audio/caesar-salad-tips.mp3",
         ingredients: [
@@ -123,7 +142,7 @@ export const recipesData = [
         prepTime: 10,
         cookTime: 5,
         servings: 1,
-        image: "/assets/images/turkey-club.jpg",
+        image: turkeyClub,
         videoUrl: "/assets/videos/turkey-club-tutorial.mp4",
         audioUrl: "/assets/audio/turkey-club-tips.mp3",
         ingredients: [
@@ -151,7 +170,7 @@ export const recipesData = [
         prepTime: 15,
         cookTime: 10,
         servings: 2,
-        image: "/assets/images/stirfry-noodles.jpg",
+        image: stirfryNoodles,
         videoUrl: "/assets/videos/stirfry-noodles-tutorial.mp4",
         audioUrl: "/assets/audio/stirfry-noodles-tips.mp3",
         ingredients: [
@@ -180,7 +199,7 @@ export const recipesData = [
         prepTime: 10,
         cookTime: 5,
         servings: 2,
-        image: "/assets/images/bean-wrap.jpg",
+        image: beanWrap,
         videoUrl: "/assets/videos/bean-wrap-tutorial.mp4",
         audioUrl: "/assets/audio/bean-wrap-tips.mp3",
         ingredients: [
@@ -194,12 +213,13 @@ export const recipesData = [
         instructions: [
             "Warm tortillas in a dry pan for 30 seconds per side",
             "Mash half the black beans, leave the rest whole",
-            "Layer beans, corn, onion, cheese and salsa on each tortillas",
+            "Layer beans, corn, onion, cheese and salsa on each tortilla",
             "Roll tightly, folding in the sides",
             "Slice in half and serve",
         ],
     },
-    // dinner recipes
+
+    // Dinner recipes
     {
         id: 8,
         title: "Classic Spaghetti Carbonara",
@@ -209,7 +229,7 @@ export const recipesData = [
         prepTime: 10,
         cookTime: 15,
         servings: 4,
-        image: "/assets/images/carbonara.jpg",
+        image: carbonara,
         videoUrl: "/assets/videos/carbonara-tutorial.mp4",
         audioUrl: "/assets/audio/carbonara-tips.mp3",
         ingredients: [
@@ -237,7 +257,7 @@ export const recipesData = [
         prepTime: 15,
         cookTime: 15,
         servings: 4,
-        image: "/assets/images/beef-broccoli.jpg",
+        image: beefBroccoli,
         videoUrl: "/assets/videos/beef-broccoli-tutorial.mp4",
         audioUrl: "/assets/audio/beef-broccoli-tips.mp3",
         ingredients: [
@@ -266,7 +286,7 @@ export const recipesData = [
         prepTime: 30,
         cookTime: 40,
         servings: 4,
-        image: "/assets/images/tikka-masala.jpg",
+        image: tikkaMasala,
         videoUrl: "/assets/videos/tikka-masala-tutorial.mp4",
         audioUrl: "/assets/audio/tikka-masala-tips.mp3",
         ingredients: [
@@ -297,7 +317,7 @@ export const recipesData = [
         prepTime: 10,
         cookTime: 20,
         servings: 2,
-        image: "/assets/images/baked-salmon.jpg",
+        image: bakedSalmon,
         videoUrl: "/assets/videos/baked-salmon-tutorial.mp4",
         audioUrl: "/assets/audio/baked-salmon-tips.mp3",
         ingredients: [
@@ -326,7 +346,7 @@ export const recipesData = [
         prepTime: 15,
         cookTime: 15,
         servings: 4,
-        image: "/assets/images/beef-tacos.jpg",
+        image: beefTacos,
         videoUrl: "/assets/videos/beef-tacos-tutorial.mp4",
         audioUrl: "/assets/audio/beef-tacos-tips.mp3",
         ingredients: [
@@ -346,7 +366,8 @@ export const recipesData = [
             "Fill tortillas with beef and top with salsa",
         ],
     },
-    // dessert recipes
+
+    // Dessert recipes
     {
         id: 13,
         title: "Classic Chocolate Chip Cookies",
@@ -356,7 +377,7 @@ export const recipesData = [
         prepTime: 15,
         cookTime: 12,
         servings: 24,
-        image: "/assets/images/chocolate-chip-cookies.jpg",
+        image: chocolateChipCookies,
         videoUrl: "/assets/videos/cookies-tutorial.mp4",
         audioUrl: "/assets/audio/cookies-tips.mp3",
         ingredients: [
@@ -386,7 +407,7 @@ export const recipesData = [
         prepTime: 30,
         cookTime: 60,
         servings: 8,
-        image: "/assets/images/cheesecake.jpg",
+        image: cheesecake,
         videoUrl: "/assets/videos/cheesecake-tutorial.mp4",
         audioUrl: "/assets/audio/cheesecake-tips.mp3",
         ingredients: [
@@ -416,7 +437,7 @@ export const recipesData = [
         prepTime: 30,
         cookTime: 0,
         servings: 8,
-        image: "/assets/images/tiramisu.jpg",
+        image: tiramisu,
         videoUrl: "/assets/videos/tiramisu-tutorial.mp4",
         audioUrl: "/assets/audio/tiramisu-tips.mp3",
         ingredients: [
@@ -446,7 +467,7 @@ export const recipesData = [
         prepTime: 10,
         cookTime: 25,
         servings: 4,
-        image: "/assets/images/sweet-potato-fries.jpg",
+        image: sweetPotatoFries,
         videoUrl: "/assets/videos/sweet-potato-fries-tutorial.mp4",
         audioUrl: "/assets/audio/sweet-potato-fries-tips.mp3",
         ingredients: [
@@ -473,7 +494,7 @@ export const recipesData = [
         prepTime: 10,
         cookTime: 0,
         servings: 4,
-        image: "/assets/images/guacamole.jpg",
+        image: guacamole,
         videoUrl: "/assets/videos/guacamole-tutorial.mp4",
         audioUrl: "/assets/audio/guacamole-tips.mp3",
         ingredients: [
