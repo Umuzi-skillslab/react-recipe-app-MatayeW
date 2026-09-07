@@ -1,0 +1,73 @@
+/* Navbar styling */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.5rem;
+    background-color: #2f6f4f;
+    color: #ffffff;
+}
+
+.brand {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.link {
+    color: #ffffff;
+    text-decoration: none;
+    padding-bottom: 4px;
+    transition: opacity 0.15s ease;
+}
+
+.link:hover {
+    opacity: 0.8;
+}
+
+/* Active route styling */
+.active {
+    font-weight: 700;
+    border-bottom: 2px solid #ffffff;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Mobile hamburger list styling */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #2f6f4f;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .linksOpen {
+        display: flex;
+    }
+}
