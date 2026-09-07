@@ -1,30 +1,34 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import Button from "./Button";
 import styles from "./UI.module.css";
 
-const SearchBar = ({ onSearch, placeHolder = "Search recipes..."}) => {
-    const [searchTerm, onSearchTerm] = useState("");
+const SearchBar = ({ placeHolder = "Search recipes...", onSearch }) => {
+    const [searchTerm, setSearchTerm] = useState("");
 
     const handleChange = (e) => {
-        const value = e.target.value;
-        setSearchTerm(value);
-        onSearch(value);
+        setSearchTerm(e.target.value);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSearch(searchTerm);
+
+        if (onSearch) {
+            onSearch(searchTerm);
+        }
     };
 
     return (
-        <form onSubmit={handleSubmit} className={styles.searchForm}>
-            <input type="text" value={searchTerm} onChange={handleChange} placeholder={placeHolder} className={styles.searchInput}
-            //onFocus/onBlur highlights the input while the user is actively typing, then removes the highligt when they click away
-            onFocus={(e) => e.target.classList.add(styles.searchInputFocused)}
-            onBlur={(e) => e.target.classList.remove(styles.searchInputFocused)}
+        <form className={styles.searchBar} onSubmit={handleSubmit}>
+            <input 
+                type="text" 
+                value={searchTerm} 
+                onChange={handleChange} 
+                placeholder={placeHolder} 
+                aria-label="Search recipes"
             />
-            <Button type="submit" variant="primary">Search</Button>
+            <Button type="submit">
+                Search
+            </Button>
         </form>
     );
 };
