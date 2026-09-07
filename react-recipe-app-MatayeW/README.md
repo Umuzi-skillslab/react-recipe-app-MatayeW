@@ -137,32 +137,40 @@ Future improvements could include user accounts, recipe creation, more advanced 
 
 ## Screenshots
 
-Screenshots demonstrating the application's functionality will be included in the `screenshots/` folder:
+### Home
 
-1. Home page
-2. Recipe browsing and filters
-3. Recipe detail page with video
-4. Weekly meal planner
-5. Favourites page
-6. Mobile responsive layout
+![Home Page](./screenshots/home.png)
 
-```
-## Screenshots
+### Recipes
 
-### Home Page
-![Home Page](screenshots/home.png)
+![Recipes Page](./screenshots/recipes.png)
 
-### Recipes and Filters
-![Recipes and Filters](screenshots/recipes-filters.png)
+### Recipe Search
 
-### Recipe Detail
-![Recipe Detail](screenshots/recipe-detail.png)
+![Recipe Search](./screenshots/recipes-search.png)
+
+### Recipe Filters
+
+![Recipe Filters](./screenshots/recipes-filters.png)
+
+### Recipe Details
+
+![Recipe Details](./screenshots/recipe-details.png)
+
+![Recipe Details 2](./screenshots/recipe-details2.png)
+
+![Recipe Details 3](./screenshots/recipe-details3.png)
 
 ### Meal Planner
-![Meal Planner](screenshots/meal-planner.png)
+
+![Meal Planner](./screenshots/meal-planner.png)
 
 ### Favorites
-![Favorites](screenshots/favorites.png)
+
+![Favorites](./screenshots/favorites.png)
 
 ### Mobile Layout
-![Mobile Layout](screenshots/mobile.png)
+
+![Mobile Layout](./screenshots/mobile.png)
+
+````
