@@ -9,6 +9,17 @@ import FavoritesPage from "./pages/FavoritesPage";
 import NotFound from "./pages/NotFound";
 import { recipesData } from "./data/recipesData";
 
+// Empty week state for when "Clear Week" is clicked and used as initial state
+const EMPTY_WEEK = {
+  monday: { breakfast: null, lunch: null, dinner: null },
+  tuesday: { breakfast: null, lunch: null, dinner: null },
+  wednesday: { breakfast: null, lunch: null, dinner: null },
+  thursday: { breakfast: null, lunch: null, dinner: null },
+  friday: { breakfast: null, lunch: null, dinner: null },
+  saturday: { breakfast: null, lunch: null, dinner: null },
+  sunday: { breakfast: null, lunch: null, dinner: null },
+};
+
 function App() {
   return (
     <>
