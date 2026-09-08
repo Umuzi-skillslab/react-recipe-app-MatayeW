@@ -12,7 +12,7 @@ A modern, responsive React web application for recipe discovery, nutritional pla
 
 ### 2. Search and Multi-Faceted Filters
 
-![Recipes Search & Filters](./react-recipe-app-MatayeW/screenshots/recipes-filters.png)
+![Recipes Search & Filters](./react-recipe-app-MatayeW/screenshots/recipe-filters.png)
 
 ### 3. Dynamic Recipe Detail and Video Player
 
@@ -28,7 +28,7 @@ A modern, responsive React web application for recipe discovery, nutritional pla
 
 ### 6. Responsive Mobile View
 
-![Mobile View](./react-recipe-app-MatayeW/screenshots/mobile.png)
+![Mobile View](./react-recipe-app-MatayeW/screenshots/mobile.jpg)
 
 ---
 
