@@ -1,73 +1,197 @@
 /* Navbar styling */
+
+:root {
+    --navbar-height: 76px;
+}
+
+/* Desktop navbar */
+
 .navbar {
     position: sticky;
     top: 0;
-    z-index: 100;
+    width: 100%;
+    min-height: var(--navbar-height);
+    box-sizing: border-box;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0.9rem 1.5rem;
-    background-color: #2f6f4f;
-    color: #ffffff;
+    padding: 0.75rem 2rem;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
 }
+
+/* Brand styling */
 
 .brand {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-decoration: none;
-}
-
-.links {
     display: flex;
-    gap: 1.5rem;
-}
-
-.link {
-    color: #ffffff;
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
-    padding-bottom: 4px;
-    transition: opacity 0.15s ease;
+    color: var(--color-text);
+    flex-shrink: 0;
 }
 
-.link:hover {
-    opacity: 0.8;
+.brandIcon {
+    font-size: 1.5rem;
+}
+
+.brandText {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+/* Navigation links */
+
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-left: 2.5rem;
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 0.9rem;
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+.navLink:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+}
+
+.navIcon {
+    font-size: 1rem;
 }
 
 /* Active route styling */
+
 .active {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
     font-weight: 700;
-    border-bottom: 2px solid #ffffff;
 }
+
+/* Favorites count */
+
+.countBadge {
+    margin-left: 0.25rem;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.1rem 0.45rem;
+    border-radius: var(--radius-pill);
+}
+
+/* Tagline styling */
+
+.tagline {
+    margin: 0 0 0 auto;
+    padding-left: 1rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+/* Hamburger button */
 
 .hamburger {
     display: none;
-    background: none;
-    border: none;
-    color: #ffffff;
-    font-size: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-left: auto;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background-color: var(--color-surface);
+    color: var(--color-primary-dark);
+    font-size: 1.35rem;
+    line-height: 1;
     cursor: pointer;
 }
 
-/* Mobile hamburger list styling */
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
+/* Mobile styling */
+
+@media (max-width: 900px) {
+    .navbar {
+        min-height: 64px;
+        padding: 0.65rem 1rem;
+        flex-wrap: wrap;
     }
 
-    .links {
+    .hamburger {
+        display: flex;
+        position: relative;
+        z-index: 1002;
+    }
+
+    .navLinks {
+        position: static;
+        width: 100%;
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: #2f6f4f;
-        padding: 1rem;
-        gap: 1rem;
+        align-items: stretch;
+        gap: 0.35rem;
+        margin: 0;
+        padding: 0.75rem 0 0.25rem;
+        background-color: var(--color-surface);
+        border-top: 1px solid var(--color-border);
     }
 
-    .linksOpen {
+    .navbarOpen .navLinks {
         display: flex;
+    }
+
+    .navLink {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.85rem 1rem;
+        border-radius: 12px;
+    }
+
+    .tagline {
+        display: none;
+    }
+}
+
+/* Small mobile styling */
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0.65rem 0.85rem;
+    }
+
+    .brandIcon {
+        font-size: 1.35rem;
+    }
+
+    .brandText {
+        font-size: 1.2rem;
+    }
+
+    .hamburger {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 1.25rem;
+    }
+
+    .navLinks {
+        padding-top: 0.65rem;
     }
 }

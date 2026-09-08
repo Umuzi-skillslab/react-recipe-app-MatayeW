@@ -1,20 +1,17 @@
-import "./App.css";
-
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-
 import Navbar from "./components/Navigation/Navbar";
-import Footer from "./components/common/Footer";
-
+import styles from "./App.module.css";
 import Home from "./pages/Home";
 import RecipesPage from "./pages/RecipesPage";
 import RecipeDetail from "./components/Recipe/RecipeDetail";
 import MealPlannerPage from "./pages/MealPlannerPage";
 import FavoritesPage from "./pages/FavoritesPage";
 import NotFound from "./pages/NotFound";
-
 import { recipesData } from "./data/recipesData";
 
+// The empty week shape used both as the initial state and whenever
+// "Clear Week" is clicked.
 const EMPTY_WEEK = {
     monday: { breakfast: null, lunch: null, dinner: null },
     tuesday: { breakfast: null, lunch: null, dinner: null },
@@ -26,93 +23,93 @@ const EMPTY_WEEK = {
 };
 
 function App() {
-    // Recipe data is available immediately when the app starts.
-    const [recipes] = useState(recipesData);
+    // recipes: loaded once on mount. In a real app this might be a
+    // fetch() call; here it's local data, but the useEffect pattern
+    // is the same either way.
+    const [recipes, setRecipes] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-    // Loading state is used by the recipe page for conditional rendering.
-    const [isLoading] = useState(false);
+    // favorites and mealPlan are "lifted state" — owned here in App
+    // so that RecipesPage, FavoritesPage, and MealPlannerPage can all
+    // read and update the same shared data instead of each having
+    // their own disconnected copy.
+    const [favorites, setFavorites] = useState([]);
+    const [mealPlan, setMealPlan] = useState(EMPTY_WEEK);
 
-    // Load saved favorites when the state is first created.
-    const [favorites, setFavorites] = useState(() => {
+    // Load recipes on mount (simulates an initial data fetch).
+    useEffect(() => {
+        setRecipes(recipesData);
+        setIsLoading(false);
+    }, []);
+
+    // Load favorites from localStorage once, on mount only ([] dependency).
+    useEffect(() => {
         const saved = localStorage.getItem("favorites");
+        if (saved) {
+            setFavorites(JSON.parse(saved));
+        }
+    }, []);
 
-        return saved ? JSON.parse(saved) : [];
-    });
-
-    // Load the saved meal plan when the state is first created.
-    const [mealPlan, setMealPlan] = useState(() => {
+    // Load the saved meal plan from localStorage once, on mount only.
+    useEffect(() => {
         const saved = localStorage.getItem("mealPlan");
+        if (saved) {
+            setMealPlan(JSON.parse(saved));
+        }
+    }, []);
 
-        return saved ? JSON.parse(saved) : EMPTY_WEEK;
-    });
-
-    // Save favorites whenever the favorites state changes.
+    // Persist favorites to localStorage every time they change.
     useEffect(() => {
         localStorage.setItem("favorites", JSON.stringify(favorites));
     }, [favorites]);
 
-    // Save the meal plan whenever the meal plan state changes.
+    // Persist the meal plan to localStorage every time it changes.
     useEffect(() => {
         localStorage.setItem("mealPlan", JSON.stringify(mealPlan));
     }, [mealPlan]);
 
-    // Update the browser tab title when the app loads.
-    useEffect(() => {
-        document.title = "Recipe Discovery & Meal Planner";
-    }, []);
-
-    // Add or remove a recipe from the favorites list.
+    // Child-to-parent callback: RecipeCard calls this (via RecipeList)
+    // when its favorite button is clicked. Adds or removes the recipe
+    // depending on whether it's already favorited.
     const handleFavoriteToggle = (recipeId) => {
         setFavorites((prev) => {
-            const alreadyFavorited = prev.some(
-                (recipe) => recipe.id === recipeId
-            );
-
+            const alreadyFavorited = prev.some((r) => r.id === recipeId);
             if (alreadyFavorited) {
-                return prev.filter((recipe) => recipe.id !== recipeId);
+                return prev.filter((r) => r.id !== recipeId);
             }
-
-            const recipe = recipes.find((item) => item.id === recipeId);
-
+            const recipe = recipes.find((r) => r.id === recipeId);
             return [...prev, recipe];
         });
     };
 
-    // Add a recipe to a specific day and meal.
+    // Child-to-parent callback: DayCard calls this when "Add" is clicked
+    // on a meal slot. Updates only that one day/mealType pair, spreading
+    // the rest of the mealPlan object unchanged.
     const handleAddMeal = (day, mealType, recipe) => {
         setMealPlan((prev) => ({
             ...prev,
-            [day]: {
-                ...prev[day],
-                [mealType]: recipe,
-            },
+            [day]: { ...prev[day], [mealType]: recipe },
         }));
     };
 
-    // Remove a recipe from a specific meal.
     const handleRemoveMeal = (day, mealType) => {
         setMealPlan((prev) => ({
             ...prev,
-            [day]: {
-                ...prev[day],
-                [mealType]: null,
-            },
+            [day]: { ...prev[day], [mealType]: null },
         }));
     };
 
-    // Clear every meal from the weekly planner.
     const handleClearWeek = () => {
         setMealPlan(EMPTY_WEEK);
     };
 
     return (
-        <div className="app">
+        <div className={styles.appLayout}>
             <Navbar favoritesCount={favorites.length} />
 
-            <main className="main">
+            <main className={styles.mainContent}>
                 <Routes>
                     <Route path="/" element={<Home />} />
-
                     <Route
                         path="/recipes"
                         element={
@@ -124,12 +121,8 @@ function App() {
                             />
                         }
                     />
-
-                    <Route
-                        path="/recipes/:id"
-                        element={<RecipeDetail recipes={recipes} />}
-                    />
-
+                    {/* Dynamic route: :id is read inside RecipeDetail via useParams() */}
+                    <Route path="/recipes/:id" element={<RecipeDetail recipes={recipes} />} />
                     <Route
                         path="/meal-planner"
                         element={
@@ -142,22 +135,16 @@ function App() {
                             />
                         }
                     />
-
                     <Route
                         path="/favorites"
                         element={
-                            <FavoritesPage
-                                favorites={favorites}
-                                onFavoriteToggle={handleFavoriteToggle}
-                            />
+                            <FavoritesPage favorites={favorites} onFavoriteToggle={handleFavoriteToggle} />
                         }
                     />
-
+                    {/* Catch-all: any path that doesn't match the routes above */}
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </main>
-
-            <Footer />
         </div>
     );
 }

@@ -1,13 +1,11 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-
+import { useSearchParams } from "react-router-dom";
 import SearchBar from "../components/UI/SearchBar";
 import RecipeFilter from "../components/Recipe/RecipeFilter";
 import RecipeList from "../components/Recipe/RecipeList";
 import Loading from "../components/UI/Loading";
-
 import { filterRecipes, sortRecipes } from "../utils/helpers";
-
 import styles from "./Pages.module.css";
 
 const RecipesPage = ({
@@ -16,9 +14,15 @@ const RecipesPage = ({
     isLoading,
     onFavoriteToggle,
 }) => {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [category, setCategory] = useState("all");
-    const [cuisine, setCuisine] = useState("all");
+    const [searchParams] = useSearchParams();
+
+    const initialCategory = searchParams.get("category") || "all";
+    const initialCuisine = searchParams.get("cuisine") || "all";
+    const initialSearch = searchParams.get("search") || "";
+
+    const [searchTerm, setSearchTerm] = useState(initialSearch);
+    const [category, setCategory] = useState(initialCategory);
+    const [cuisine, setCuisine] = useState(initialCuisine);
     const [difficulty, setDifficulty] = useState("all");
     const [sortBy, setSortBy] = useState("title");
 
@@ -33,6 +37,7 @@ const RecipesPage = ({
     const visibleRecipes = sortRecipes(filtered, sortBy);
 
     const handleClearFilters = () => {
+        setSearchTerm("");
         setCategory("all");
         setCuisine("all");
         setDifficulty("all");
@@ -71,7 +76,6 @@ const RecipesPage = ({
                 </select>
             </div>
 
-            {/* Loading state: shown while recipes are being "fetched" in App.jsx */}
             {isLoading ? (
                 <Loading message="Loading recipes..." />
             ) : (

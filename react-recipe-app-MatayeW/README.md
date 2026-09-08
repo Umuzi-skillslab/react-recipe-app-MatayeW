@@ -140,6 +140,7 @@ Future improvements could include user accounts, recipe creation, more advanced 
 ### Home
 
 ![Home Page](./screenshots/home.png)
+![Home Page 2](./screenshots/home2.png)
 
 ### Recipes
 
@@ -151,15 +152,13 @@ Future improvements could include user accounts, recipe creation, more advanced 
 
 ### Recipe Filters
 
-![Recipe Filters](./screenshots/recipes-filters.png)
+![Recipe Filters](./screenshots/recipe-filters.png)
 
 ### Recipe Details
 
 ![Recipe Details](./screenshots/recipe-details.png)
 
 ![Recipe Details 2](./screenshots/recipe-details2.png)
-
-![Recipe Details 3](./screenshots/recipe-details3.png)
 
 ### Meal Planner
 
@@ -171,6 +170,5 @@ Future improvements could include user accounts, recipe creation, more advanced 
 
 ### Mobile Layout
 
-![Mobile Layout](./screenshots/mobile.png)
+![Mobile Layout](./screenshots/mobile.jpg)
 
-````
