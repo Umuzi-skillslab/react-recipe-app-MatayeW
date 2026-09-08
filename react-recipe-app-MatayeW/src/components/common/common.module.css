@@ -1,0 +1,33 @@
+/* Shared styling for common components */
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
+}
+
+.header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.header p {
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #555555;
+}
+
+.footer {
+    margin-top: 3rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    background-color: #2f6f4f;
+    color: #ffffff;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}

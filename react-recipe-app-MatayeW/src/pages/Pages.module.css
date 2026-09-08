@@ -1,0 +1,484 @@
+/* Page styling */
+
+.page {
+    min-height: 100vh;
+    padding: 2rem 2.5rem 4rem;
+    background: var(--platr-cream, #f7f5ef);
+}
+
+/* Home content styling */
+
+.homeContent {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Hero styling */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    min-height: 420px;
+    margin-top: 1.5rem;
+    overflow: hidden;
+    border-radius: 30px;
+    background: #dce8dd;
+}
+
+.heroText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #527060;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.heroText h1 {
+    max-width: 560px;
+    margin: 0;
+    color: #20392c;
+    font-size: clamp(3rem, 5vw, 5.2rem);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+}
+
+.heroText h1 span {
+    display: block;
+    color: #527060;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.heroText p {
+    max-width: 520px;
+    margin: 1.5rem 0 2rem;
+    color: #526158;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.heroActions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.secondaryAction {
+    color: #284d3b;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.secondaryAction:hover {
+    opacity: 0.65;
+}
+
+/* Hero Image */
+
+.heroImage {
+    position: relative;
+    min-height: 420px;
+    overflow: hidden;
+}
+
+.heroImage img {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    display: block;
+    object-fit: cover;
+}
+
+/* Floating card styling */
+
+.floatingCard {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    max-width: calc(100% - 2rem);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 10px 30px rgba(31, 44, 37, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+.floatingIcon {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #dce8dd;
+    color: #284d3b;
+    font-size: 1.2rem;
+}
+
+.floatingCard div {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.floatingCard strong,
+.floatingCard small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.floatingCard strong {
+    color: #284d3b;
+    font-size: 0.8rem;
+}
+
+.floatingCard small {
+    color: #7a837d;
+    font-size: 0.7rem;
+}
+
+/* Section heading styling */
+
+.categoriesSection {
+    margin-top: 4rem;
+}
+
+.sectionHeading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.sectionEyebrow {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: #718078;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.sectionHeading h2,
+.audioSection h2 {
+    margin: 0;
+    color: #263b30;
+    font-size: 2rem;
+    font-weight: 650;
+    letter-spacing: -0.035em;
+}
+
+.viewAll {
+    color: #527060;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.viewAll:hover {
+    text-decoration: underline;
+}
+
+/* Category cards */
+
+.categoryGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.categoryCard {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1.25rem;
+    border: 1px solid rgba(40, 77, 59, 0.08);
+    border-radius: 22px;
+    background: #ffffff;
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.categoryCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(40, 77, 59, 0.08);
+}
+
+.categoryIcon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: auto;
+    border-radius: 50%;
+    background: #edf3ec;
+    font-size: 1.6rem;
+}
+
+.categoryCard>span:last-child {
+    color: #284d3b;
+    font-size: 1rem;
+    font-weight: 650;
+}
+
+/* Quick access card styling */
+
+.quickAccess {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.quickCard {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.75rem;
+    border-radius: 22px;
+    background: #284d3b;
+    color: #ffffff;
+}
+
+.quickCard:nth-child(2) {
+    background: #cbdccf;
+    color: #284d3b;
+}
+
+.cardIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    font-size: 1.2rem;
+}
+
+.quickCard:nth-child(2) .cardIcon {
+    background: rgba(40, 77, 59, 0.1);
+}
+
+.quickCard h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+}
+
+.quickCard p {
+    max-width: 400px;
+    margin: 0;
+    opacity: 0.75;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.cardLink {
+    align-self: flex-start;
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    font-weight: 650;
+}
+
+.cardLink:hover {
+    text-decoration: underline;
+}
+
+/* Audio styling */
+
+.audioSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding: 1.75rem 2rem;
+    border: 1px solid #e2e5df;
+    border-radius: 22px;
+    background: #ffffff;
+}
+
+.audioSection h2 {
+    font-size: 1.45rem;
+}
+
+/* Sorting */
+
+.sortRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.sortRow select {
+    padding: 0.55rem 0.8rem;
+    border: 1px solid #d5dad4;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #284d3b;
+    font-family: inherit;
+    font-size: 0.85rem;
+}
+
+/* Tablet styling */
+
+@media (max-width: 1100px) {
+    .page {
+        padding: 1.5rem 1.5rem 3rem;
+    }
+
+    .heroText {
+        padding: 3rem;
+    }
+
+    .heroText h1 {
+        font-size: 3.7rem;
+    }
+
+    .categoryGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile styling */
+
+@media (max-width: 900px) {
+    .page {
+        padding: 1.25rem 1rem 3rem;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .heroText {
+        padding: 2.5rem 2rem;
+    }
+
+    .heroText h1 {
+        font-size: 3.4rem;
+    }
+
+    .heroImage {
+        min-height: 300px;
+    }
+
+    .heroImage img {
+        min-height: 300px;
+    }
+
+    .quickAccess {
+        grid-template-columns: 1fr;
+    }
+
+    .audioSection {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* Small mobile styling */
+
+@media (max-width: 600px) {
+    .page {
+        padding: 1rem 0.75rem 2.5rem;
+    }
+
+    .hero {
+        border-radius: 22px;
+    }
+
+    .heroText {
+        padding: 2rem 1.5rem;
+    }
+
+    .heroText h1 {
+        font-size: 2.8rem;
+    }
+
+    .heroText p {
+        font-size: 0.9rem;
+    }
+
+    .heroActions {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .categoryGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+
+    .categoryCard {
+        min-height: 130px;
+        padding: 1rem;
+        border-radius: 18px;
+    }
+
+    .categoryIcon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.35rem;
+    }
+
+    .sectionHeading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .sectionHeading h2,
+    .audioSection h2 {
+        font-size: 1.6rem;
+    }
+
+    .quickCard {
+        padding: 1.4rem;
+        border-radius: 18px;
+    }
+
+    .audioSection {
+        padding: 1.4rem;
+        border-radius: 18px;
+    }
+
+    .floatingCard {
+        right: 0.75rem;
+        bottom: 0.75rem;
+        max-width: calc(100% - 1.5rem);
+        padding: 0.75rem 0.9rem;
+    }
+
+    .floatingCard strong,
+    .floatingCard small {
+        white-space: normal;
+    }
+}
