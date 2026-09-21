@@ -1,17 +1,107 @@
-# React_Recipe_App
+# Smart Recipe and Meal Planning Application
 
-A local cooking school has partnered with food bloggers to create an interactive recipe discovery and meal planning application. They need a modern, responsive React application that allows users to browse recipes, plan weekly meals, watch cooking tutorials, and save their favorite dishes. You've been hired to build this application from scratch, demonstrating your proficiency in React fundamentals, component architecture, state management, and modern JavaScript practices.
+A modern, responsive React web application for recipe discovery, nutritional planning, weekly meal scheduling, and bookmarking favorite culinary ideas.
 
-Your task is to build a fully functional Recipe Discovery & Meal Planning application using React. You must create the entire application from the ground up, demonstrating mastery of functional components, hooks, props, event handling, routing, conditional rendering, and multimedia integration. The application must be well-organized, styled professionally, and provide an excellent user experience.
+---
 
-## Project Overview: Recipe Discovery & Meal Planning App
-**Core Features Required:**
-- Browse and search recipes by category, cuisine, or ingredients
-- View detailed recipe information with ingredients and instructions
-- Watch embedded cooking tutorial videos
-- Listen to cooking tips audio guides
-- Add recipes to a weekly meal planner (Monday-Sunday)
-- Mark recipes as favorites
-- Filter and sort recipes dynamically
-- Responsive navigation with multiple routes
-- Interactive user interface with smooth transitions
+## Application Screenshots
+
+### 1. Home Page
+
+![Home Page](./react-recipe-app-MatayeW/screenshots/home.png)
+
+### 2. Search and Multi-Faceted Filters
+
+![Recipes Search & Filters](./react-recipe-app-MatayeW/screenshots/recipe-filters.png)
+
+### 3. Dynamic Recipe Detail and Video Player
+
+![Recipe Detail with Video](./react-recipe-app-MatayeW/screenshots/recipe-details.png)
+
+### 4. Weekly Meal Planner
+
+![Weekly Meal Planner](./react-recipe-app-MatayeW/screenshots/meal-planner.png)
+
+### 5. Bookmarked Favorites
+
+![Saved Favorites](./react-recipe-app-MatayeW/screenshots/favorites.png)
+
+### 6. Responsive Mobile View
+
+![Mobile View](./react-recipe-app-MatayeW/screenshots/mobile.jpg)
+
+---
+
+## Key Features
+
+1. **Centralized Recipe Catalog (`recipesData.js`)**:
+   - 17 complete recipes with cook times, servings, calories, difficulty ratings, dietary tags, ingredient lists, and step-by-step instructions.
+
+2. **Live Search and Multi-Faceted Filters**:
+   - Real-time search across recipe titles, ingredients, and tags.
+   - Meal type and difficulty filters.
+   - Sorting options for easier recipe discovery.
+   - Dynamic empty states with options to reset filters.
+
+3. **Dynamic Recipe Detail Routing (`/recipes/:id`)**:
+   - Dynamic recipe lookup using React Router route parameters.
+   - Custom recipe detail pages with ingredients and cooking instructions.
+   - HTML5 video tutorials and audio cooking tips.
+   - Interactive Add to Meal Planner functionality.
+   - Favorite recipe toggling.
+
+4. **Weekly Meal Planner (`/meal-planner`)**:
+   - Seven-day weekly calendar with breakfast, lunch, and dinner slots.
+   - Add recipes directly to individual meal slots.
+   - Remove scheduled meals.
+   - Clear the entire week's meal plan.
+   - Meal plan persistence using browser `localStorage`.
+
+5. **Favorites System (`/favorites`)**:
+   - Save and remove favorite recipes.
+   - Favorites are stored using `localStorage`.
+   - Real-time favorites counter in the navigation bar.
+   - Dedicated favorites page with an empty-state message.
+
+6. **Cooking Tutorial Media**:
+   - HTML5 video players for recipe tutorials.
+   - Audio players for cooking tips.
+   - Native media controls and playback support.
+   - Media files are stored in the application's public assets directory.
+
+---
+
+## Component Architecture
+
+```text
+react-recipe-app-MatayeW/src/
+├── components/
+│   ├── common/ (Footer.jsx)
+│   ├── MealPlanner/ (DayCard.jsx, MealPlanner.jsx)
+│   ├── Media/ (AudioPlayer.jsx, VideoPlayer.jsx)
+│   ├── Navigation/ (Navbar.jsx)
+│   ├── Recipe/ (RecipeCard.jsx, RecipeDetail.jsx, RecipeList.jsx)
+│   └── UI/ (Button.jsx, Card.jsx, Loading.jsx, Modal.jsx, SearchBar.jsx)
+├── data/ (recipesData.js)
+├── pages/ (FavoritesPage.jsx, Home.jsx, MealPlannerPage.jsx, NotFound.jsx, RecipesPage.jsx)
+├── utils/ (helpers.js)
+├── App.css
+├── App.jsx
+├── index.css
+├── index.js
+└── main.jsx
+
+--- ## How to View
+bash
+# 1. Navigate into the app directory
+cd recipe-app
+
+# 2. Install dependencies
+npm install
+
+# 3. Run local development server
+npm run dev
+
+# 4. Validate lint and production build
+npm run lint
+npm run build

@@ -1,0 +1,17 @@
+/* App styling */
+
+.appLayout {
+    min-height: 100vh;
+}
+
+.mainContent {
+    min-height: 100vh;
+}
+
+/* Mobile styling */
+
+@media (max-width: 900px) {
+    .mainContent {
+        min-height: 100vh;
+    }
+}
